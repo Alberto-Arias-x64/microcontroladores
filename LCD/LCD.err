@@ -1,0 +1,15 @@
+Error[1105] C:\Users\nikol\Desktop\LCD\LCD.c 34 : symbol 'FOUR_BIT' has not been defined
+Error[1105] C:\Users\nikol\Desktop\LCD\LCD.c 34 : symbol 'LINES_5X7' has not been defined
+Warning[2058] C:\Users\nikol\Desktop\LCD\LCD.c 34 : call of function without prototype
+Error[1105] C:\Users\nikol\Desktop\LCD\LCD.c 35 : symbol 'SHIFT_DISP_LEFT' has not been defined
+Warning[2058] C:\Users\nikol\Desktop\LCD\LCD.c 35 : call of function without prototype
+Error[1105] C:\Users\nikol\Desktop\LCD\LCD.c 36 : symbol 'BLINK_OFF' has not been defined
+Warning[2058] C:\Users\nikol\Desktop\LCD\LCD.c 36 : call of function without prototype
+Warning[2058] C:\Users\nikol\Desktop\LCD\LCD.c 37 : call of function without prototype
+Warning[2058] C:\Users\nikol\Desktop\LCD\LCD.c 38 : call of function without prototype
+Warning[2058] C:\Users\nikol\Desktop\LCD\LCD.c 50 : call of function without prototype
+Warning[2058] C:\Users\nikol\Desktop\LCD\LCD.c 51 : call of function without prototype
+Warning[2058] C:\Users\nikol\Desktop\LCD\LCD.c 52 : call of function without prototype
+Warning[2058] C:\Users\nikol\Desktop\LCD\LCD.c 53 : call of function without prototype
+Warning[2058] C:\Users\nikol\Desktop\LCD\LCD.c 54 : call of function without prototype
+Warning[2058] C:\Users\nikol\Desktop\LCD\LCD.c 55 : call of function without prototype

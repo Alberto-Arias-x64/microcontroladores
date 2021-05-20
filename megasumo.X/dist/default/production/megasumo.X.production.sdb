@@ -1,0 +1,132 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F452 ]
+[d frameptr 4065 ]
+"62 C:\Program Files\Microchip\xc8\v1.38\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files\Microchip\xc8\v1.38\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files\Microchip\xc8\v1.38\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 C:\Program Files\Microchip\xc8\v1.38\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 C:\Program Files\Microchip\xc8\v1.38\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"10 C:\Program Files\Microchip\xc8\v1.38\sources\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 C:\Program Files\Microchip\xc8\v1.38\sources\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 C:\Program Files\Microchip\xc8\v1.38\sources\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 C:\Program Files\Microchip\xc8\v1.38\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"69 C:\Users\nikol\MPLABXProjects\megasumo.X\MEGA.c
+[v _main main `(v  1 e 1 0 ]
+"85
+[v _CONF_PUERTOS CONF_PUERTOS `(v  1 e 1 0 ]
+"94
+[v _BORRAR_BASURA BORRAR_BASURA `(v  1 e 1 0 ]
+"729 C:\Program Files\Microchip\xc8\v1.38\include\pic18f452.h
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+"846
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+[s S104 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"894
+[s S113 . 1 `uc 1 LB0 1 0 :1:0 
+]
+[s S115 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+]
+[s S118 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LB2 1 0 :1:2 
+]
+[s S121 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 LB3 1 0 :1:3 
+]
+[s S124 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LB4 1 0 :1:4 
+]
+[s S127 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LB5 1 0 :1:5 
+]
+[s S130 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 LB6 1 0 :1:6 
+]
+[s S133 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S136 . 1 `S104 1 . 1 0 `S113 1 . 1 0 `S115 1 . 1 0 `S118 1 . 1 0 `S121 1 . 1 0 `S124 1 . 1 0 `S127 1 . 1 0 `S130 1 . 1 0 `S133 1 . 1 0 ]
+[v _LATBbits LATBbits `VES136  1 e 1 @3978 ]
+"1110
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+[s S29 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"1158
+[s S38 . 1 `uc 1 LD0 1 0 :1:0 
+]
+[s S40 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+]
+[s S43 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LD2 1 0 :1:2 
+]
+[s S46 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 LD3 1 0 :1:3 
+]
+[s S49 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LD4 1 0 :1:4 
+]
+[s S52 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LD5 1 0 :1:5 
+]
+[s S55 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 LD6 1 0 :1:6 
+]
+[s S58 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S61 . 1 `S29 1 . 1 0 `S38 1 . 1 0 `S40 1 . 1 0 `S43 1 . 1 0 `S46 1 . 1 0 `S49 1 . 1 0 `S52 1 . 1 0 `S55 1 . 1 0 `S58 1 . 1 0 ]
+[v _LATDbits LATDbits `VES61  1 e 1 @3980 ]
+"1242
+[v _LATE LATE `VEuc  1 e 1 @3981 ]
+"1299
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"1496
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"1974
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"2195
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"69 C:\Users\nikol\MPLABXProjects\megasumo.X\MEGA.c
+[v _main main `(v  1 e 1 0 ]
+{
+"84
+} 0
+"85
+[v _CONF_PUERTOS CONF_PUERTOS `(v  1 e 1 0 ]
+{
+"92
+} 0
+"94
+[v _BORRAR_BASURA BORRAR_BASURA `(v  1 e 1 0 ]
+{
+"100
+} 0

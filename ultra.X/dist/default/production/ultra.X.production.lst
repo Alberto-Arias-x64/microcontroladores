@@ -1,0 +1,1003 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.38 build -256452561 
+                                                                                               Mon Nov 21 09:18:24 2016
+
+Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010351
+     1                           	processor	18F452
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     6                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+     7                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     8                           	psect	text1,global,reloc=2,class=CODE,delta=1
+     9                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    12                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    13                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    14  0000                     _ADCON1	set	4033
+    15  0000                     _INTCONbits	set	4082
+    16  0000                     _LATA	set	3977
+    17  0000                     _LATAbits	set	3977
+    18  0000                     _LATB	set	3978
+    19  0000                     _LATBbits	set	3978
+    20  0000                     _LATD	set	3980
+    21  0000                     _LATDbits	set	3980
+    22  0000                     _LATE	set	3981
+    23  0000                     _PORTBbits	set	3969
+    24  0000                     _T0CON	set	4053
+    25  0000                     _T0CONbits	set	4053
+    26  0000                     _TMR0L	set	4054
+    27  0000                     _TRISA	set	3986
+    28  0000                     _TRISB	set	3987
+    29  0000                     _TRISD	set	3989
+    30  0000                     _TRISE	set	3990
+    31                           
+    32                           ; #config settings
+    33  0000                     
+    34                           	psect	cinit
+    35  003DCC                     __pcinit:
+    36                           	opt stack 0
+    37  003DCC                     start_initialization:
+    38                           	opt stack 0
+    39  003DCC                     __initialization:
+    40                           	opt stack 0
+    41  003DCC                     end_of_initialization:
+    42                           	opt stack 0
+    43  003DCC                     __end_of__initialization:
+    44                           	opt stack 0
+    45  003DCC  0100               	movlb	0
+    46  003DCE  EF14  F01F         	goto	_main	;jump to C main() function
+    47                           
+    48                           	psect	cstackCOMRAM
+    49  000001                     __pcstackCOMRAM:
+    50                           	opt stack 0
+    51  000001                     ??_main:
+    52                           
+    53                           ; 1 bytes @ 0x0
+    54  000001                     	ds	2
+    55  000003                     main@ESTADO:
+    56                           	opt stack 0
+    57                           
+    58                           ; 1 bytes @ 0x2
+    59  000003                     	ds	1
+    60  000004                     main@CTOTAL:
+    61                           	opt stack 0
+    62                           
+    63                           ; 2 bytes @ 0x3
+    64  000004                     	ds	2
+    65  000006                     main@BANDERA:
+    66                           	opt stack 0
+    67                           
+    68                           ; 1 bytes @ 0x5
+    69  000006                     	ds	1
+    70  000007                     main@CS1:
+    71                           	opt stack 0
+    72                           
+    73                           ; 2 bytes @ 0x6
+    74  000007                     	ds	2
+    75  000009                     main@CS2:
+    76                           	opt stack 0
+    77                           
+    78                           ; 2 bytes @ 0x8
+    79  000009                     	ds	2
+    80  00000B                     main@CS3:
+    81                           	opt stack 0
+    82                           
+    83                           ; 2 bytes @ 0xA
+    84  00000B                     	ds	2
+    85                           
+    86 ;;
+    87 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+    88 ;;
+    89 ;; *************** function _main *****************
+    90 ;; Defined at:
+    91 ;;		line 65 in file "ultra.c"
+    92 ;; Parameters:    Size  Location     Type
+    93 ;;		None
+    94 ;; Auto vars:     Size  Location     Type
+    95 ;;  CS3             2   10[COMRAM] unsigned int 
+    96 ;;  CS2             2    8[COMRAM] unsigned int 
+    97 ;;  CS1             2    6[COMRAM] unsigned int 
+    98 ;;  CTOTAL          2    3[COMRAM] unsigned int 
+    99 ;;  BANDERA         1    5[COMRAM] unsigned char 
+   100 ;;  ESTADO          1    2[COMRAM] unsigned char 
+   101 ;; Return value:  Size  Location     Type
+   102 ;;                  1    wreg      void 
+   103 ;; Registers used:
+   104 ;;		wreg, status,2, status,0, cstack
+   105 ;; Tracked objects:
+   106 ;;		On entry : 0/0
+   107 ;;		On exit  : 0/0
+   108 ;;		Unchanged: 0/0
+   109 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   110 ;;      Params:         0       0       0       0       0       0       0
+   111 ;;      Locals:        10       0       0       0       0       0       0
+   112 ;;      Temps:          2       0       0       0       0       0       0
+   113 ;;      Totals:        12       0       0       0       0       0       0
+   114 ;;Total ram usage:       12 bytes
+   115 ;; Hardware stack levels required when called:    1
+   116 ;; This function calls:
+   117 ;;		_BORRAR_BASURA
+   118 ;;		_CONF_PUERTOS
+   119 ;;		_CONF_TIMER0
+   120 ;;		_PULSO_10u
+   121 ;; This function is called by:
+   122 ;;		Startup code after reset
+   123 ;; This function uses a non-reentrant model
+   124 ;;
+   125                           
+   126                           	psect	text0
+   127  003E28                     __ptext0:
+   128                           	opt stack 0
+   129  003E28                     _main:
+   130                           	opt stack 0
+   131  003E28  FFFF               	dw	65535	; assembler added errata NOP
+   132                           
+   133                           ;ultra.c: 67: unsigned int CS1,CS2,CS3,CTOTAL;
+   134                           ;ultra.c: 68: unsigned char BANDERA,ESTADO;
+   135                           ;ultra.c: 69: CONF_PUERTOS();
+   136                           
+   137                           ;incstack = 0
+   138  003E2A  EC07  F01F         	call	_CONF_PUERTOS	;wreg free
+   139                           
+   140                           ;ultra.c: 70: BORRAR_BASURA();
+   141  003E2E  ECFB  F01E         	call	_BORRAR_BASURA	;wreg free
+   142                           
+   143                           ;ultra.c: 71: CONF_TIMER0();
+   144  003E32  ECE9  F01E         	call	_CONF_TIMER0	;wreg free
+   145  003E36                     l700:
+   146  003E36  FFFF               	dw	65535	; assembler added errata NOP
+   147                           
+   148                           ;ultra.c: 74: {
+   149                           ;ultra.c: 75: CS1 = 0;
+   150  003E38  0E00               	movlw	0
+   151  003E3A  6E08               	movwf	main@CS1+1,c
+   152  003E3C  0E00               	movlw	0
+   153  003E3E  6E07               	movwf	main@CS1,c
+   154                           
+   155                           ;ultra.c: 76: CS2 = 0;
+   156  003E40  0E00               	movlw	0
+   157  003E42  6E0A               	movwf	main@CS2+1,c
+   158  003E44  0E00               	movlw	0
+   159  003E46  6E09               	movwf	main@CS2,c
+   160                           
+   161                           ;ultra.c: 77: CS3 = 0;
+   162  003E48  0E00               	movlw	0
+   163  003E4A  6E0C               	movwf	main@CS3+1,c
+   164  003E4C  0E00               	movlw	0
+   165  003E4E  6E0B               	movwf	main@CS3,c
+   166                           
+   167                           ;ultra.c: 78: CTOTAL = 0;
+   168  003E50  0E00               	movlw	0
+   169  003E52  6E05               	movwf	main@CTOTAL+1,c
+   170  003E54  0E00               	movlw	0
+   171  003E56  6E04               	movwf	main@CTOTAL,c
+   172                           
+   173                           ;ultra.c: 79: ESTADO = 0;
+   174  003E58  0E00               	movlw	0
+   175  003E5A  6E03               	movwf	main@ESTADO,c
+   176                           
+   177                           ;ultra.c: 80: BANDERA = 0;
+   178  003E5C  0E00               	movlw	0
+   179  003E5E  6E06               	movwf	main@BANDERA,c
+   180                           
+   181                           ;ultra.c: 82: PULSO_10u();
+   182  003E60  ECF0  F01E         	call	_PULSO_10u	;wreg free
+   183                           
+   184                           ;ultra.c: 87: while(BANDERA == 0)
+   185  003E64  D01B               	goto	l714
+   186  003E66                     l712:
+   187  003E66  FFFF               	dw	65535	; assembler added errata NOP
+   188                           
+   189                           ;ultra.c: 88: {
+   190                           ;ultra.c: 89: BANDERA = PORTBbits.RB2 & PORTBbits.RB1 & PORTBbits.RB0;
+   191  003E68  A081               	btfss	3969,0,c	;volatile
+   192  003E6A  D003               	goto	u10
+   193  003E6C  6A01               	clrf	??_main& (0+255),c
+   194  003E6E  2A01               	incf	??_main& (0+255),f,c
+   195  003E70  D002               	goto	u18
+   196  003E72                     u10:
+   197  003E72  FFFF               	dw	65535	; assembler added errata NOP
+   198  003E74  6A01               	clrf	??_main& (0+255),c
+   199  003E76                     u18:
+   200  003E76  FFFF               	dw	65535	; assembler added errata NOP
+   201  003E78  A281               	btfss	3969,1,c	;volatile
+   202  003E7A  D003               	goto	u20
+   203  003E7C  6A02               	clrf	(??_main+1)& (0+255),c
+   204  003E7E  2A02               	incf	(??_main+1)& (0+255),f,c
+   205  003E80  D002               	goto	u28
+   206  003E82                     u20:
+   207  003E82  FFFF               	dw	65535	; assembler added errata NOP
+   208  003E84  6A02               	clrf	(??_main+1)& (0+255),c
+   209  003E86                     u28:
+   210  003E86  FFFF               	dw	65535	; assembler added errata NOP
+   211  003E88  A481               	btfss	3969,2,c	;volatile
+   212  003E8A  D002               	goto	u30
+   213  003E8C  0E01               	movlw	1
+   214  003E8E  D002               	goto	u36
+   215  003E90                     u30:
+   216  003E90  FFFF               	dw	65535	; assembler added errata NOP
+   217  003E92  0E00               	movlw	0
+   218  003E94                     u36:
+   219  003E94  FFFF               	dw	65535	; assembler added errata NOP
+   220  003E96  1402               	andwf	??_main+1,w,c
+   221  003E98  1401               	andwf	??_main,w,c
+   222  003E9A  6E06               	movwf	main@BANDERA,c
+   223  003E9C                     l714:
+   224  003E9C  FFFF               	dw	65535	; assembler added errata NOP
+   225  003E9E  5006               	movf	main@BANDERA,w,c
+   226  003EA0  B4D8               	btfsc	status,2,c
+   227  003EA2  D7E1               	goto	l712
+   228                           
+   229                           ;ultra.c: 90: }
+   230                           ;ultra.c: 92: BANDERA = 1;
+   231  003EA4  0E01               	movlw	1
+   232  003EA6  6E06               	movwf	main@BANDERA,c
+   233                           
+   234                           ;ultra.c: 94: T0CONbits.TMR0ON = 1;
+   235  003EA8  8ED5               	bsf	4053,7,c	;volatile
+   236                           
+   237                           ;ultra.c: 96: while(CTOTAL <300)
+   238  003EAA  D016               	goto	l738
+   239  003EAC                     l52:
+   240  003EAC  FFFF               	dw	65535	; assembler added errata NOP
+   241                           
+   242                           ;ultra.c: 97: {
+   243                           ;ultra.c: 98: if(INTCONbits.TMR0IF)
+   244  003EAE  A4F2               	btfss	intcon,2,c	;volatile
+   245  003EB0  D013               	goto	l738
+   246                           
+   247                           ;ultra.c: 99: {
+   248                           ;ultra.c: 100: INTCONbits.TMR0IF = 0;
+   249  003EB2  94F2               	bcf	intcon,2,c	;volatile
+   250                           
+   251                           ;ultra.c: 101: TMR0L = 60;
+   252  003EB4  0E3C               	movlw	60
+   253  003EB6  6ED6               	movwf	4054,c	;volatile
+   254                           
+   255                           ;ultra.c: 102: CTOTAL++;
+   256  003EB8  4A04               	infsnz	main@CTOTAL,f,c
+   257  003EBA  2A05               	incf	main@CTOTAL+1,f,c
+   258                           
+   259                           ;ultra.c: 105: if(PORTBbits.RB2 == 1 ){CS1++;}
+   260  003EBC  A481               	btfss	3969,2,c	;volatile
+   261  003EBE  D002               	goto	l730
+   262  003EC0  4A07               	infsnz	main@CS1,f,c
+   263  003EC2  2A08               	incf	main@CS1+1,f,c
+   264  003EC4                     l730:
+   265  003EC4  FFFF               	dw	65535	; assembler added errata NOP
+   266                           
+   267                           ;ultra.c: 106: if(PORTBbits.RB1 == 1 ){CS2++;}
+   268  003EC6  A281               	btfss	3969,1,c	;volatile
+   269  003EC8  D002               	goto	l734
+   270  003ECA  4A09               	infsnz	main@CS2,f,c
+   271  003ECC  2A0A               	incf	main@CS2+1,f,c
+   272  003ECE                     l734:
+   273  003ECE  FFFF               	dw	65535	; assembler added errata NOP
+   274                           
+   275                           ;ultra.c: 107: if(PORTBbits.RB0 == 1 ){CS3++;}
+   276  003ED0  A081               	btfss	3969,0,c	;volatile
+   277  003ED2  D002               	goto	l738
+   278  003ED4  4A0B               	infsnz	main@CS3,f,c
+   279  003ED6  2A0C               	incf	main@CS3+1,f,c
+   280  003ED8                     l738:
+   281  003ED8  FFFF               	dw	65535	; assembler added errata NOP
+   282  003EDA  0E2C               	movlw	44
+   283  003EDC  5C04               	subwf	main@CTOTAL,w,c
+   284  003EDE  0E01               	movlw	1
+   285  003EE0  5805               	subwfb	main@CTOTAL+1,w,c
+   286  003EE2  A0D8               	btfss	status,0,c
+   287  003EE4  D7E3               	goto	l52
+   288                           
+   289                           ;ultra.c: 108: }
+   290                           ;ultra.c: 109: }
+   291                           ;ultra.c: 110: T0CONbits.TMR0ON = 0;
+   292  003EE6  9ED5               	bcf	4053,7,c	;volatile
+   293                           
+   294                           ;ultra.c: 112: if(CS1>2 && CS1< 10){LATBbits.LATB7 =1;}
+   295  003EE8  5008               	movf	main@CS1+1,w,c
+   296  003EEA  E104               	bnz	u100
+   297  003EEC  0E03               	movlw	3
+   298  003EEE  5C07               	subwf	main@CS1,w,c
+   299  003EF0  A0D8               	btfss	status,0,c
+   300  003EF2  D008               	goto	l58
+   301  003EF4                     u100:
+   302  003EF4  5008               	movf	main@CS1+1,w,c
+   303  003EF6  E106               	bnz	l58
+   304  003EF8  0E0A               	movlw	10
+   305  003EFA  5C07               	subwf	main@CS1,w,c
+   306  003EFC  B0D8               	btfsc	status,0,c
+   307  003EFE  D002               	goto	l58
+   308  003F00  8E8A               	bsf	3978,7,c	;volatile
+   309  003F02  D002               	goto	l746
+   310  003F04                     l58:
+   311  003F04  FFFF               	dw	65535	; assembler added errata NOP
+   312                           
+   313                           ;ultra.c: 113: else{LATBbits.LATB7 =0;}
+   314  003F06  9E8A               	bcf	3978,7,c	;volatile
+   315  003F08                     l746:
+   316  003F08  FFFF               	dw	65535	; assembler added errata NOP
+   317                           
+   318                           ;ultra.c: 115: if(CS2>2 && CS2< 10){LATBbits.LATB6 =1;}
+   319  003F0A  500A               	movf	main@CS2+1,w,c
+   320  003F0C  E104               	bnz	u120
+   321  003F0E  0E03               	movlw	3
+   322  003F10  5C09               	subwf	main@CS2,w,c
+   323  003F12  A0D8               	btfss	status,0,c
+   324  003F14  D008               	goto	l60
+   325  003F16                     u120:
+   326  003F16  500A               	movf	main@CS2+1,w,c
+   327  003F18  E106               	bnz	l60
+   328  003F1A  0E0A               	movlw	10
+   329  003F1C  5C09               	subwf	main@CS2,w,c
+   330  003F1E  B0D8               	btfsc	status,0,c
+   331  003F20  D002               	goto	l60
+   332  003F22  8C8A               	bsf	3978,6,c	;volatile
+   333  003F24  D002               	goto	l752
+   334  003F26                     l60:
+   335  003F26  FFFF               	dw	65535	; assembler added errata NOP
+   336                           
+   337                           ;ultra.c: 116: else{LATBbits.LATB6 =0;}
+   338  003F28  9C8A               	bcf	3978,6,c	;volatile
+   339  003F2A                     l752:
+   340  003F2A  FFFF               	dw	65535	; assembler added errata NOP
+   341                           
+   342                           ;ultra.c: 118: LATA=0;
+   343  003F2C  0E00               	movlw	0
+   344  003F2E  6E89               	movwf	3977,c	;volatile
+   345                           
+   346                           ;ultra.c: 119: if(CS2>2){LATAbits.LATA0 = 1;}
+   347  003F30  500A               	movf	main@CS2+1,w,c
+   348  003F32  E103               	bnz	u140
+   349  003F34  0E03               	movlw	3
+   350  003F36  5C09               	subwf	main@CS2,w,c
+   351  003F38  B0D8               	btfsc	status,0,c
+   352  003F3A                     u140:
+   353  003F3A  8089               	bsf	3977,0,c	;volatile
+   354                           
+   355                           ;ultra.c: 120: if(CS2>4){LATAbits.LATA1 = 1;}
+   356  003F3C  500A               	movf	main@CS2+1,w,c
+   357  003F3E  E103               	bnz	u150
+   358  003F40  0E05               	movlw	5
+   359  003F42  5C09               	subwf	main@CS2,w,c
+   360  003F44  B0D8               	btfsc	status,0,c
+   361  003F46                     u150:
+   362  003F46  8289               	bsf	3977,1,c	;volatile
+   363                           
+   364                           ;ultra.c: 121: if(CS2>6){LATAbits.LATA2 = 1;}
+   365  003F48  500A               	movf	main@CS2+1,w,c
+   366  003F4A  E103               	bnz	u160
+   367  003F4C  0E07               	movlw	7
+   368  003F4E  5C09               	subwf	main@CS2,w,c
+   369  003F50  B0D8               	btfsc	status,0,c
+   370  003F52                     u160:
+   371  003F52  8489               	bsf	3977,2,c	;volatile
+   372                           
+   373                           ;ultra.c: 122: if(CS2>8){LATAbits.LATA3 = 1;}
+   374  003F54  500A               	movf	main@CS2+1,w,c
+   375  003F56  E103               	bnz	u170
+   376  003F58  0E09               	movlw	9
+   377  003F5A  5C09               	subwf	main@CS2,w,c
+   378  003F5C  B0D8               	btfsc	status,0,c
+   379  003F5E                     u170:
+   380  003F5E  8689               	bsf	3977,3,c	;volatile
+   381                           
+   382                           ;ultra.c: 123: if(CS2>10){LATAbits.LATA5 = 1;}
+   383  003F60  500A               	movf	main@CS2+1,w,c
+   384  003F62  E103               	bnz	u180
+   385  003F64  0E0B               	movlw	11
+   386  003F66  5C09               	subwf	main@CS2,w,c
+   387  003F68  B0D8               	btfsc	status,0,c
+   388  003F6A                     u180:
+   389  003F6A  8A89               	bsf	3977,5,c	;volatile
+   390                           
+   391                           ;ultra.c: 125: if(CS3>2 && CS3< 10){LATBbits.LATB5 =1;}
+   392  003F6C  500C               	movf	main@CS3+1,w,c
+   393  003F6E  E104               	bnz	u190
+   394  003F70  0E03               	movlw	3
+   395  003F72  5C0B               	subwf	main@CS3,w,c
+   396  003F74  A0D8               	btfss	status,0,c
+   397  003F76  D008               	goto	l67
+   398  003F78                     u190:
+   399  003F78  500C               	movf	main@CS3+1,w,c
+   400  003F7A  E106               	bnz	l67
+   401  003F7C  0E0A               	movlw	10
+   402  003F7E  5C0B               	subwf	main@CS3,w,c
+   403  003F80  B0D8               	btfsc	status,0,c
+   404  003F82  D002               	goto	l67
+   405  003F84  8A8A               	bsf	3978,5,c	;volatile
+   406  003F86  D002               	goto	l780
+   407  003F88                     l67:
+   408  003F88  FFFF               	dw	65535	; assembler added errata NOP
+   409                           
+   410                           ;ultra.c: 126: else{LATBbits.LATB5 =0;}
+   411  003F8A  9A8A               	bcf	3978,5,c	;volatile
+   412  003F8C                     l780:
+   413  003F8C  FFFF               	dw	65535	; assembler added errata NOP
+   414                           
+   415                           ;ultra.c: 128: LATD=0;
+   416  003F8E  0E00               	movlw	0
+   417  003F90  6E8C               	movwf	3980,c	;volatile
+   418                           
+   419                           ;ultra.c: 129: if(CS3>2){LATDbits.LATD3 = 1;}
+   420  003F92  500C               	movf	main@CS3+1,w,c
+   421  003F94  E103               	bnz	u210
+   422  003F96  0E03               	movlw	3
+   423  003F98  5C0B               	subwf	main@CS3,w,c
+   424  003F9A  B0D8               	btfsc	status,0,c
+   425  003F9C                     u210:
+   426  003F9C  868C               	bsf	3980,3,c	;volatile
+   427                           
+   428                           ;ultra.c: 130: if(CS3>4){LATDbits.LATD4 = 1;}
+   429  003F9E  500C               	movf	main@CS3+1,w,c
+   430  003FA0  E103               	bnz	u220
+   431  003FA2  0E05               	movlw	5
+   432  003FA4  5C0B               	subwf	main@CS3,w,c
+   433  003FA6  B0D8               	btfsc	status,0,c
+   434  003FA8                     u220:
+   435  003FA8  888C               	bsf	3980,4,c	;volatile
+   436                           
+   437                           ;ultra.c: 131: if(CS3>6){LATDbits.LATD5 = 1;}
+   438  003FAA  500C               	movf	main@CS3+1,w,c
+   439  003FAC  E103               	bnz	u230
+   440  003FAE  0E07               	movlw	7
+   441  003FB0  5C0B               	subwf	main@CS3,w,c
+   442  003FB2  B0D8               	btfsc	status,0,c
+   443  003FB4                     u230:
+   444  003FB4  8A8C               	bsf	3980,5,c	;volatile
+   445                           
+   446                           ;ultra.c: 132: if(CS3>8){LATDbits.LATD6 = 1;}
+   447  003FB6  500C               	movf	main@CS3+1,w,c
+   448  003FB8  E103               	bnz	u240
+   449  003FBA  0E09               	movlw	9
+   450  003FBC  5C0B               	subwf	main@CS3,w,c
+   451  003FBE  B0D8               	btfsc	status,0,c
+   452  003FC0                     u240:
+   453  003FC0  8C8C               	bsf	3980,6,c	;volatile
+   454                           
+   455                           ;ultra.c: 133: if(CS3>10){LATDbits.LATD7 = 1;}
+   456  003FC2  500C               	movf	main@CS3+1,w,c
+   457  003FC4  E103               	bnz	u250
+   458  003FC6  0E0B               	movlw	11
+   459  003FC8  5C0B               	subwf	main@CS3,w,c
+   460  003FCA  B0D8               	btfsc	status,0,c
+   461  003FCC                     u250:
+   462  003FCC  8E8C               	bsf	3980,7,c	;volatile
+   463                           
+   464                           ;ultra.c: 135: _delay((unsigned long)((30)*(16000000/4000.0)));
+   465  003FCE  0E75               	movlw	117
+   466  003FD0  6E01               	movwf	??_main& (0+255),c
+   467  003FD2  0EF5               	movlw	245
+   468  003FD4                     u267:
+   469  003FD4  FFFF               	dw	65535	; errata NOP
+   470  003FD6  2EE8               	decfsz	wreg,f,c
+   471  003FD8  D7FD               	goto	u267
+   472  003FDA  2E01               	decfsz	??_main& (0+255),f,c
+   473  003FDC  D7FB               	goto	u267
+   474                           
+   475                           ;ultra.c: 136: _delay((unsigned long)((30)*(16000000/4000.0)));
+   476  003FDE  0E75               	movlw	117
+   477  003FE0  6E01               	movwf	??_main& (0+255),c
+   478  003FE2  0EF5               	movlw	245
+   479  003FE4                     u277:
+   480  003FE4  FFFF               	dw	65535	; errata NOP
+   481  003FE6  2EE8               	decfsz	wreg,f,c
+   482  003FE8  D7FD               	goto	u277
+   483  003FEA  2E01               	decfsz	??_main& (0+255),f,c
+   484  003FEC  D7FB               	goto	u277
+   485                           
+   486                           ;ultra.c: 137: _delay((unsigned long)((30)*(16000000/4000.0)));
+   487  003FEE  0E75               	movlw	117
+   488  003FF0  6E01               	movwf	??_main& (0+255),c
+   489  003FF2  0EF5               	movlw	245
+   490  003FF4                     u287:
+   491  003FF4  FFFF               	dw	65535	; errata NOP
+   492  003FF6  2EE8               	decfsz	wreg,f,c
+   493  003FF8  D7FD               	goto	u287
+   494  003FFA  2E01               	decfsz	??_main& (0+255),f,c
+   495  003FFC  D7FB               	goto	u287
+   496  003FFE  D71B               	goto	l700
+   497  004000                     __end_of_main:
+   498                           	opt stack 0
+   499                           intcon	equ	0xFF2
+   500                           wreg	equ	0xFE8
+   501                           status	equ	0xFD8
+   502                           
+   503 ;; *************** function _PULSO_10u *****************
+   504 ;; Defined at:
+   505 ;;		line 165 in file "ultra.c"
+   506 ;; Parameters:    Size  Location     Type
+   507 ;;		None
+   508 ;; Auto vars:     Size  Location     Type
+   509 ;;		None
+   510 ;; Return value:  Size  Location     Type
+   511 ;;                  1    wreg      void 
+   512 ;; Registers used:
+   513 ;;		wreg, status,2
+   514 ;; Tracked objects:
+   515 ;;		On entry : 0/0
+   516 ;;		On exit  : 0/0
+   517 ;;		Unchanged: 0/0
+   518 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   519 ;;      Params:         0       0       0       0       0       0       0
+   520 ;;      Locals:         0       0       0       0       0       0       0
+   521 ;;      Temps:          0       0       0       0       0       0       0
+   522 ;;      Totals:         0       0       0       0       0       0       0
+   523 ;;Total ram usage:        0 bytes
+   524 ;; Hardware stack levels used:    1
+   525 ;; This function calls:
+   526 ;;		Nothing
+   527 ;; This function is called by:
+   528 ;;		_main
+   529 ;; This function uses a non-reentrant model
+   530 ;;
+   531                           
+   532                           	psect	text1
+   533  003DE0                     __ptext1:
+   534                           	opt stack 0
+   535  003DE0                     _PULSO_10u:
+   536                           	opt stack 0
+   537  003DE0  FFFF               	dw	65535	; assembler added errata NOP
+   538                           
+   539                           ;ultra.c: 167: LATE = 7;
+   540                           
+   541                           ;incstack = 0
+   542  003DE2  0E07               	movlw	7
+   543  003DE4  6E8D               	movwf	3981,c	;volatile
+   544                           
+   545                           ;ultra.c: 168: _delay((unsigned long)((20)*(16000000/4000000.0)));
+   546  003DE6  0E14               	movlw	20
+   547  003DE8                     u297:
+   548  003DE8  FFFF               	dw	65535	; errata NOP
+   549  003DEA  2EE8               	decfsz	wreg,f,c
+   550  003DEC  D7FD               	goto	u297
+   551                           
+   552                           ;ultra.c: 169: LATE = 0;
+   553  003DEE  0E00               	movlw	0
+   554  003DF0  6E8D               	movwf	3981,c	;volatile
+   555  003DF2  0012               	return		;funcret
+   556  003DF4  FFFF               	dw	65535	; errata NOP
+   557  003DF6                     __end_of_PULSO_10u:
+   558                           	opt stack 0
+   559                           intcon	equ	0xFF2
+   560                           wreg	equ	0xFE8
+   561                           status	equ	0xFD8
+   562                           
+   563 ;; *************** function _CONF_TIMER0 *****************
+   564 ;; Defined at:
+   565 ;;		line 159 in file "ultra.c"
+   566 ;; Parameters:    Size  Location     Type
+   567 ;;		None
+   568 ;; Auto vars:     Size  Location     Type
+   569 ;;		None
+   570 ;; Return value:  Size  Location     Type
+   571 ;;                  1    wreg      void 
+   572 ;; Registers used:
+   573 ;;		wreg, status,2
+   574 ;; Tracked objects:
+   575 ;;		On entry : 0/0
+   576 ;;		On exit  : 0/0
+   577 ;;		Unchanged: 0/0
+   578 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   579 ;;      Params:         0       0       0       0       0       0       0
+   580 ;;      Locals:         0       0       0       0       0       0       0
+   581 ;;      Temps:          0       0       0       0       0       0       0
+   582 ;;      Totals:         0       0       0       0       0       0       0
+   583 ;;Total ram usage:        0 bytes
+   584 ;; Hardware stack levels used:    1
+   585 ;; This function calls:
+   586 ;;		Nothing
+   587 ;; This function is called by:
+   588 ;;		_main
+   589 ;; This function uses a non-reentrant model
+   590 ;;
+   591                           
+   592                           	psect	text2
+   593  003DD2                     __ptext2:
+   594                           	opt stack 0
+   595  003DD2                     _CONF_TIMER0:
+   596                           	opt stack 0
+   597  003DD2  FFFF               	dw	65535	; assembler added errata NOP
+   598                           
+   599                           ;ultra.c: 161: T0CON = 0b01000000;
+   600                           
+   601                           ;incstack = 0
+   602  003DD4  0E40               	movlw	64
+   603  003DD6  6ED5               	movwf	4053,c	;volatile
+   604                           
+   605                           ;ultra.c: 162: TMR0L = 56;
+   606  003DD8  0E38               	movlw	56
+   607  003DDA  6ED6               	movwf	4054,c	;volatile
+   608  003DDC  0012               	return		;funcret
+   609  003DDE  FFFF               	dw	65535	; errata NOP
+   610  003DE0                     __end_of_CONF_TIMER0:
+   611                           	opt stack 0
+   612                           intcon	equ	0xFF2
+   613                           wreg	equ	0xFE8
+   614                           status	equ	0xFD8
+   615                           
+   616 ;; *************** function _CONF_PUERTOS *****************
+   617 ;; Defined at:
+   618 ;;		line 141 in file "ultra.c"
+   619 ;; Parameters:    Size  Location     Type
+   620 ;;		None
+   621 ;; Auto vars:     Size  Location     Type
+   622 ;;		None
+   623 ;; Return value:  Size  Location     Type
+   624 ;;                  1    wreg      void 
+   625 ;; Registers used:
+   626 ;;		wreg, status,2
+   627 ;; Tracked objects:
+   628 ;;		On entry : 0/0
+   629 ;;		On exit  : 0/0
+   630 ;;		Unchanged: 0/0
+   631 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   632 ;;      Params:         0       0       0       0       0       0       0
+   633 ;;      Locals:         0       0       0       0       0       0       0
+   634 ;;      Temps:          0       0       0       0       0       0       0
+   635 ;;      Totals:         0       0       0       0       0       0       0
+   636 ;;Total ram usage:        0 bytes
+   637 ;; Hardware stack levels used:    1
+   638 ;; This function calls:
+   639 ;;		Nothing
+   640 ;; This function is called by:
+   641 ;;		_main
+   642 ;; This function uses a non-reentrant model
+   643 ;;
+   644                           
+   645                           	psect	text3
+   646  003E0E                     __ptext3:
+   647                           	opt stack 0
+   648  003E0E                     _CONF_PUERTOS:
+   649                           	opt stack 0
+   650  003E0E  FFFF               	dw	65535	; assembler added errata NOP
+   651                           
+   652                           ;ultra.c: 143: TRISB = 0b00000111;
+   653                           
+   654                           ;incstack = 0
+   655  003E10  0E07               	movlw	7
+   656  003E12  6E93               	movwf	3987,c	;volatile
+   657                           
+   658                           ;ultra.c: 144: TRISD = 0b00000000;
+   659  003E14  0E00               	movlw	0
+   660  003E16  6E95               	movwf	3989,c	;volatile
+   661                           
+   662                           ;ultra.c: 145: TRISE = 0b00000000;
+   663  003E18  0E00               	movlw	0
+   664  003E1A  6E96               	movwf	3990,c	;volatile
+   665                           
+   666                           ;ultra.c: 146: ADCON1 = 0b00000110;
+   667  003E1C  0E06               	movlw	6
+   668  003E1E  6EC1               	movwf	4033,c	;volatile
+   669                           
+   670                           ;ultra.c: 147: TRISA = 0b00000000;
+   671  003E20  0E00               	movlw	0
+   672  003E22  6E92               	movwf	3986,c	;volatile
+   673  003E24  0012               	return		;funcret
+   674  003E26  FFFF               	dw	65535	; errata NOP
+   675  003E28                     __end_of_CONF_PUERTOS:
+   676                           	opt stack 0
+   677                           intcon	equ	0xFF2
+   678                           wreg	equ	0xFE8
+   679                           status	equ	0xFD8
+   680                           
+   681 ;; *************** function _BORRAR_BASURA *****************
+   682 ;; Defined at:
+   683 ;;		line 151 in file "ultra.c"
+   684 ;; Parameters:    Size  Location     Type
+   685 ;;		None
+   686 ;; Auto vars:     Size  Location     Type
+   687 ;;		None
+   688 ;; Return value:  Size  Location     Type
+   689 ;;                  1    wreg      void 
+   690 ;; Registers used:
+   691 ;;		wreg, status,2
+   692 ;; Tracked objects:
+   693 ;;		On entry : 0/0
+   694 ;;		On exit  : 0/0
+   695 ;;		Unchanged: 0/0
+   696 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   697 ;;      Params:         0       0       0       0       0       0       0
+   698 ;;      Locals:         0       0       0       0       0       0       0
+   699 ;;      Temps:          0       0       0       0       0       0       0
+   700 ;;      Totals:         0       0       0       0       0       0       0
+   701 ;;Total ram usage:        0 bytes
+   702 ;; Hardware stack levels used:    1
+   703 ;; This function calls:
+   704 ;;		Nothing
+   705 ;; This function is called by:
+   706 ;;		_main
+   707 ;; This function uses a non-reentrant model
+   708 ;;
+   709                           
+   710                           	psect	text4
+   711  003DF6                     __ptext4:
+   712                           	opt stack 0
+   713  003DF6                     _BORRAR_BASURA:
+   714                           	opt stack 0
+   715  003DF6  FFFF               	dw	65535	; assembler added errata NOP
+   716                           
+   717                           ;ultra.c: 153: LATB = 0;
+   718                           
+   719                           ;incstack = 0
+   720  003DF8  0E00               	movlw	0
+   721  003DFA  6E8A               	movwf	3978,c	;volatile
+   722                           
+   723                           ;ultra.c: 154: LATD = 0;
+   724  003DFC  0E00               	movlw	0
+   725  003DFE  6E8C               	movwf	3980,c	;volatile
+   726                           
+   727                           ;ultra.c: 155: LATE = 0;
+   728  003E00  0E00               	movlw	0
+   729  003E02  6E8D               	movwf	3981,c	;volatile
+   730                           
+   731                           ;ultra.c: 156: LATA = 0;
+   732  003E04  0E00               	movlw	0
+   733  003E06  6E89               	movwf	3977,c	;volatile
+   734  003E08  0012               	return		;funcret
+   735  003E0A  FFFF               	dw	65535	; errata NOP
+   736  003E0C                     __end_of_BORRAR_BASURA:
+   737                           	opt stack 0
+   738  003E0C  FFFF               	dw	65535	; assembler added errata NOP
+   739                           intcon	equ	0xFF2
+   740                           wreg	equ	0xFE8
+   741                           status	equ	0xFD8
+   742                           intcon	equ	0xFF2
+   743                           wreg	equ	0xFE8
+   744                           status	equ	0xFD8
+   745                           
+   746                           	psect	rparam
+   747  0000                     intcon	equ	0xFF2
+   748                           wreg	equ	0xFE8
+   749                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM          127     12      12
+    BANK0           128      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                12    12      0     270
+                                              0 COMRAM    12    12      0
+                      _BORRAR_BASURA
+                       _CONF_PUERTOS
+                        _CONF_TIMER0
+                          _PULSO_10u
+ ---------------------------------------------------------------------------------
+ (1) _PULSO_10u                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _CONF_TIMER0                                          0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _CONF_PUERTOS                                         0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _BORRAR_BASURA                                        0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _BORRAR_BASURA
+   _CONF_PUERTOS
+   _CONF_TIMER0
+   _PULSO_10u
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           7F      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              7F      C       C       1        9.4%
+STACK                0      0       0       2        0.0%
+DATA                 0      0       0       3        0.0%
+BITBANK0            80      0       0       4        0.0%
+BANK0               80      0       0       5        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BANK5              100      0       0      14        0.0%
+ABS                  0      0       0      15        0.0%
+BITBANK5           100      0       0      16        0.0%
+BIGRAM             5FF      0       0      17        0.0%
+BITSFR               0      0       0      40        0.0%
+SFR                  0      0       0      40        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.38 build -256452561 
+Symbol Table                                                                                   Mon Nov 21 09:18:24 2016
+
+                                                          l60 3F26  
+                                                          l52 3EAC  
+                                                          l58 3F04  
+                                                          l67 3F88  
+                                                          u10 3E72  
+                                                          u20 3E82  
+                                                          u30 3E90  
+                                                          u18 3E76  
+                                                          u36 3E94  
+                                                          u28 3E86  
+                                                __CFG_CP0$OFF 000000  
+                                                __CFG_CP1$OFF 000000  
+                                                __CFG_CP2$OFF 000000  
+                                                __CFG_CP3$OFF 000000  
+                                                         l700 3E36  
+                                                         l712 3E66  
+                                                         l730 3EC4  
+                                                         l714 3E9C  
+                                                         l734 3ECE  
+                                                         l752 3F2A  
+                                                         l746 3F08  
+                                                         l738 3ED8  
+                                                         l780 3F8C  
+                                                __CFG_CPB$OFF 000000  
+                                                         u100 3EF4  
+                                                         u120 3F16  
+                                                         u210 3F9C  
+                                                         u220 3FA8  
+                                                         u140 3F3A  
+                                                         u230 3FB4  
+                                                         u150 3F46  
+                                                         u240 3FC0  
+                                                         u160 3F52  
+                                                         u250 3FCC  
+                                                         u170 3F5E  
+                                                         u180 3F6A  
+                                                         u190 3F78  
+                                                __CFG_CPD$OFF 000000  
+                                                         u267 3FD4  
+                                                         u277 3FE4  
+                                                         u287 3FF4  
+                                                         u297 3DE8  
+                                                __CFG_BOR$OFF 000000  
+                                                __CFG_BORV$20 000000  
+                                                         wreg 000FE8  
+                                                __CFG_LVP$OFF 000000  
+                                                __CFG_WDT$OFF 000000  
+                                                        _LATA 000F89  
+                                                        _LATB 000F8A  
+                                                        _LATD 000F8C  
+                                                        _LATE 000F8D  
+                                                __CFG_PWRT$ON 000000  
+                                                __CFG_STVR$ON 000000  
+                                                        _main 3E28  
+                                                        start 0002  
+                                                ___param_bank 000010  
+                                               __CFG_OSCS$OFF 000000  
+                                                       ?_main 0001  
+                                                       _T0CON 000FD5  
+                                                       _TMR0L 000FD6  
+                                                       _TRISA 000F92  
+                                                       _TRISB 000F93  
+                                                       _TRISD 000F95  
+                                                       _TRISE 000F96  
+                                               __CFG_WRT0$OFF 000000  
+                                               __CFG_WRT1$OFF 000000  
+                                               __CFG_WRT2$OFF 000000  
+                                               __CFG_WRT3$OFF 000000  
+                                              __CFG_EBTR0$OFF 000000  
+                                              __CFG_EBTR1$OFF 000000  
+                                              __CFG_EBTR2$OFF 000000  
+                                              __CFG_EBTR3$OFF 000000  
+                                               __CFG_WRTB$OFF 000000  
+                                               __CFG_WRTC$OFF 000000  
+                                               __CFG_WRTD$OFF 000000  
+                                              __CFG_EBTRB$OFF 000000  
+                                          __size_of_PULSO_10u 0016  
+                                                       status 000FD8  
+                                        __end_of_CONF_PUERTOS 3E28  
+                                             __initialization 3DCC  
+                                                __end_of_main 4000  
+                                              __CFG_OSC$HSPLL 000000  
+                                                      ??_main 0001  
+                                               __activetblptr 000000  
+                                        __size_of_CONF_TIMER0 000E  
+                                             __CFG_CCP2MUX$ON 000000  
+                                                      _ADCON1 000FC1  
+                                              __CFG_WDTPS$128 000000  
+                                           __end_of_PULSO_10u 3DF6  
+                                       __end_of_BORRAR_BASURA 3E0C  
+                                                  __accesstop 0080  
+                                     __end_of__initialization 3DCC  
+                                               ___rparam_used 000001  
+                                              __pcstackCOMRAM 0001  
+                                       __size_of_CONF_PUERTOS 001A  
+                                                _CONF_PUERTOS 3E0E  
+                                                     __Hparam 0000  
+                                                     __Lparam 0000  
+                                                     __pcinit 3DCC  
+                                                     __ramtop 0600  
+                                                     __ptext0 3E28  
+                                                     __ptext1 3DE0  
+                                                     __ptext2 3DD2  
+                                                     __ptext3 3E0E  
+                                                     __ptext4 3DF6  
+                                                   _T0CONbits 000FD5  
+                                                     main@CS1 0007  
+                                                     main@CS2 0009  
+                                                     main@CS3 000B  
+                                        end_of_initialization 3DCC  
+                                               ??_CONF_TIMER0 0001  
+                                                   _PORTBbits 000F81  
+                                                   _PULSO_10u 3DE0  
+                                                  main@CTOTAL 0004  
+                                                  main@ESTADO 0003  
+                                                  ?_PULSO_10u 0001  
+                                         start_initialization 3DCC  
+                                         __end_of_CONF_TIMER0 3DE0  
+                                      __size_of_BORRAR_BASURA 0016  
+                                                 _CONF_TIMER0 3DD2  
+                                                 ??_PULSO_10u 0001  
+                                               _BORRAR_BASURA 3DF6  
+                                                    _LATAbits 000F89  
+                                                    _LATBbits 000F8A  
+                                                    _LATDbits 000F8C  
+                                              ?_BORRAR_BASURA 0001  
+                                                    __Hrparam 0000  
+                                                    __Lrparam 0000  
+                                               __size_of_main 01D8  
+                                                  _INTCONbits 000FF2  
+                                               ?_CONF_PUERTOS 0001  
+                                             ??_BORRAR_BASURA 0001  
+                                                ?_CONF_TIMER0 0001  
+                                              ??_CONF_PUERTOS 0001  
+                                                 main@BANDERA 0006  

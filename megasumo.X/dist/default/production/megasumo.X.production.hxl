@@ -1,0 +1,35 @@
+### HEXMate logfile and output summary ###
+### OP Code find / replace / delete results ###
+ Search results for     \Movlb_15\ (0F01h & FFFFFFFFh):
+  No occurances found.
+
+### Memory Usage ###
+ Unused memory ranges:
+  6h - 3FA9h
+  4000h - 1FFFFFh
+  200008h - 2FFFFFh
+  30000Eh - 30003Fh
+  
+ dist/default/production\megasumo.X.production.hex ranges:
+  0h - 5h
+  3FAAh - 3FFFh
+  200000h - 200007h
+  300000h - 30000Dh
+  
+### Hex Memory Map ###
+ Legend:
+  - = Unused memory
+  F = Filled ROM
+  S = Stored serial code
+  A = Stored ASCII string
+  R = Reserved for checksum
+  C = Stored checksum result
+  T = Trailing code
+  & = Find & replace opcode
+  X = Find & delete opcode
+  1 = dist/default/production\megasumo.X.production.hex
+00000000: 111111----------------------------------------------------------
+00003F80: ------------------------------------------1111111111111111111111
+00003FC0: 1111111111111111111111111111111111111111111111111111111111111111
+00200000: 11111111--------------------------------------------------------
+00300000: 11111111111111--------------------------------------------------
